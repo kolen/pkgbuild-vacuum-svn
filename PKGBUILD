@@ -2,7 +2,7 @@
 
 pkgname=vacuum-svn
 pkgver=902
-pkgrel=2
+pkgrel=3
 pkgdesc="Jabber IM client using Qt"
 arch=('i686' 'x86_64')
 url="http://code.google.com/p/vacuum-im/"
@@ -11,7 +11,7 @@ conflicts=()
 depends=('qt>=4.5.0' 'libidn')
 makedepends=('subversion')
 source=(vacuum.desktop)
-md5sums=('965dce02d21ffacae1aa050df6c87d79')
+md5sums=('c78d4d7a22510017aa0c89bf848e3146')
 
 _svntrunk=http://vacuum-im.googlecode.com/svn/trunk/
 _svnmod=vacuum-im-svn

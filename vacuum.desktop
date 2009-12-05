@@ -7,5 +7,5 @@ Exec=vacuum
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=/usr/share/vacuum/menuicons/shared/mainwindowlogo128.png
+Icon=/usr/share/vacuum/resources/menuicons/shared/mainwindowlogo128.png
 Categories=Network;InstantMessaging;

@@ -1,3 +1,0 @@
-#!/bin/sh
-LD_LIBRARY_PATH=/usr/lib/vacuum exec /usr/lib/vacuum/vacuum
-

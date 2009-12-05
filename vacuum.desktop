@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Vacuum
+GenericName=Jabber Client
+GenericName[ru]=Jabber-клиент
+Comment=Qt-based Jabber (XMPP) client
+Exec=vacuum
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=/usr/share/vacuum/menuicons/shared/mainwindowlogo128.png
+Categories=Network;InstantMessaging;

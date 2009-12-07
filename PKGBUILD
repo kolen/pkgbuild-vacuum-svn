@@ -1,10 +1,11 @@
 # Contributor: Konstantin Mochalov <incredible.angst@gmail.com>
 
 pkgname=vacuum-svn
-pkgver=905
+pkgver=906
 pkgrel=1
 pkgdesc="Jabber IM client using Qt"
 arch=('i686' 'x86_64')
+options=(!makeflags)
 url="http://code.google.com/p/vacuum-im/"
 license=('GPL3')
 conflicts=()
@@ -31,12 +32,11 @@ build() {
   qmake -recursive vacuum.pro || return 1
 
   msg "Starting make..."
-  # For some reasons, first make fails, second make finishes successfully
-  make || make || return 1
+  make || return 1
 
   msg "Installing to package directory..."
   make INSTALL_ROOT=${pkgdir} install || return 1
-  
+
   install -Dm644 ${startdir}/vacuum.desktop ${pkgdir}/usr/share/applications/vacuum.desktop || return 1
 
   # make install leaves .svn directories, remove them

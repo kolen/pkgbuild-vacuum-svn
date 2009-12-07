@@ -1,8 +1,8 @@
 # Contributor: Konstantin Mochalov <incredible.angst@gmail.com>
 
 pkgname=vacuum-svn
-pkgver=902
-pkgrel=3
+pkgver=905
+pkgrel=1
 pkgdesc="Jabber IM client using Qt"
 arch=('i686' 'x86_64')
 url="http://code.google.com/p/vacuum-im/"
@@ -37,7 +37,7 @@ build() {
   msg "Installing to package directory..."
   make INSTALL_ROOT=${pkgdir} install || return 1
   
-  install -Dm644 ${startdir}/vacuum.desktop ${pkgdir}/usr/share/applications/vacuum.desktop
+  install -Dm644 ${startdir}/vacuum.desktop ${pkgdir}/usr/share/applications/vacuum.desktop || return 1
 
   # make install leaves .svn directories, remove them
   find ${pkgdir} -type d -name '.svn' -prune -exec rm -rf '{}' \;

@@ -1,11 +1,10 @@
 # Contributor: Konstantin Mochalov <incredible.angst@gmail.com>
 
 pkgname=vacuum-svn
-pkgver=906
+pkgver=916
 pkgrel=1
 pkgdesc="Jabber IM client using Qt"
 arch=('i686' 'x86_64')
-options=(!makeflags)
 url="http://code.google.com/p/vacuum-im/"
 license=('GPL3')
 conflicts=()
@@ -26,10 +25,10 @@ build() {
   fi
   msg "SVN checkout done or server timeout"
 
-  cp -r $_svnmod $_svnmod-build || return 1
+  cp -rf $_svnmod $_svnmod-build || return 1
   cd $_svnmod-build || return 1
 
-  qmake -recursive vacuum.pro || return 1
+  qmake INSTALL_PREFIX=/usr -recursive vacuum.pro || return 1
 
   msg "Starting make..."
   make || return 1

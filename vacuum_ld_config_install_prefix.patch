@@ -1,0 +1,17 @@
+Index: src/loader/loader.pro
+===================================================================
+--- src/loader/loader.pro	(revision 928)
++++ src/loader/loader.pro	(working copy)
+@@ -47,9 +47,9 @@
+   LD_CONFIG_FILE   = $${LD_CONFIG_PATH}/$${INSTALL_DIR}.conf
+ 
+   ld_config.path   = $$LD_CONFIG_PATH
+-  ld_config.extra  = rm -f $$LD_CONFIG_FILE && \
+-                     echo $${INSTALL_LIBS} >> $$LD_CONFIG_FILE && \
+-                     ldconfig
++  ld_config.extra  = rm -f $(INSTALL_ROOT)$$LD_CONFIG_FILE && \
++                     echo $${INSTALL_LIBS} >> $(INSTALL_ROOT)$$LD_CONFIG_FILE && \
++                     ( [ $(INSTALL_ROOT) ] || ldconfig )
+   INSTALLS        += ld_config
+ }
+ 

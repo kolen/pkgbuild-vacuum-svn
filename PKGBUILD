@@ -1,7 +1,7 @@
 # Contributor: Konstantin Mochalov <incredible.angst@gmail.com>
 
 pkgname=vacuum-svn
-pkgver=916
+pkgver=928
 pkgrel=1
 pkgdesc="Jabber IM client using Qt"
 arch=('i686' 'x86_64')
@@ -28,6 +28,8 @@ build() {
   cp -rf $_svnmod $_svnmod-build || return 1
   cd $_svnmod-build || return 1
 
+  patch -p0 -N <${startdir}/vacuum_ld_config_install_prefix.patch || return 1
+
   qmake INSTALL_PREFIX=/usr -recursive vacuum.pro || return 1
 
   msg "Starting make..."
@@ -36,7 +38,8 @@ build() {
   msg "Installing to package directory..."
   make INSTALL_ROOT=${pkgdir} install || return 1
 
-  install -Dm644 ${startdir}/vacuum.desktop ${pkgdir}/usr/share/applications/vacuum.desktop || return 1
+  install -Dm644 ${startdir}/vacuum.desktop \
+    ${pkgdir}/usr/share/applications/vacuum.desktop || return 1
 
   # make install leaves .svn directories, remove them
   find ${pkgdir} -type d -name '.svn' -prune -exec rm -rf '{}' \;
